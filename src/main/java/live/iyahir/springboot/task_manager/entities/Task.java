@@ -10,7 +10,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import live.iyahir.springboot.task_manager.dto.TaskDto;
-import live.iyahir.springboot.task_manager.dto.TimedTaskDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -63,16 +62,4 @@ public class Task {
 	public Task(TaskDto dto) {
 		this(dto.title(), dto.description(), dto.dueDate(), dto.completed());
 	}
-	
-	/**
-	 * Crea la tarea usando un DTO que sí incluye fecha de creacion
-	 * Utilizado para crear una nueva tarea.
-	 * 
-	 * @param dto Datos de la tarea, con fecha de cración
-	 */
-	public Task(TimedTaskDto dto) {
-		this(dto.title(), dto.description(), dto.dueDate(), dto.completed());
-		this.createdAt = dto.createdAt();
-	}
-		
 }
